@@ -1,4 +1,4 @@
-# Create T3 App
+<!-- # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
@@ -26,4 +26,19 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 
 ## How do I deploy this?
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information. -->
+
+
+# movieclub app latest v3.0
+
+## TODO
+- [ ] Make it deploy (Vercel)
+- [ ] Scaffold basic UI with mock data
+    - [ ] homepage
+    - [ ] club list page
+    - [ ] add movies page (init club list)
+- [ ] Set up db 
+- [ ] atttach db to UI
+- [ ] set up tmdb API (adds movie info to our db when added to list (add mov page))
+- [ ] routing (club page)
+- [ ] error mgmt (Sentry?) dont really need
