@@ -27,8 +27,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} flex flex-col gap-4`}>
-      <body>
+    <html lang="en" className={`${geist.variable}`}>
+      <body className="flex flex-col min-h-screen gap-4 dark">
         <TopNav />
         {children}
       </body>
