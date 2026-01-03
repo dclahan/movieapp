@@ -30,9 +30,11 @@ function groupBy(data: any[], key: string) {
   }
 
 async function Movies() {
-  const listswithMovies = [{"listTitle": "Test List", "listId": 1, "listDescription": "A test list", "movieID": 1, "movieTitle": "Test Movie 1", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2023-01-01", "userID": 1, "userName": "testuser", "watched": false},
+  const listswithMovies = [
+    {"listTitle": "Test List", "listId": 1, "listDescription": "A test list", "movieID": 1, "movieTitle": "Test Movie 1", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2023-01-01", "userID": 1, "userName": "testuser", "watched": false},
     {"listTitle": "Test List", "listId": 1, "listDescription": "A test list", "movieID": 2, "movieTitle": "Test Movie 2", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2024-01-01", "userID": 2, "userName": "testuser2", "watched": false},
-    {"listTitle": "Test List", "listId": 1, "listDescription": "A test list", "movieID": 3, "movieTitle": "Test Movie 3", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2025-01-01", "userID": 3, "userName": "testuser3", "watched": true}];
+    {"listTitle": "Test List", "listId": 1, "listDescription": "A test list", "movieID": 3, "movieTitle": "Test Movie 3", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2025-01-01", "userID": 3, "userName": "testuser3", "watched": true}
+  ];
   
   const moviesInLists = groupBy(listswithMovies, "listId");
 
@@ -61,14 +63,12 @@ async function ThisWeeksMovie() {
   return (
   <div className="flex flex-col justify-center gap-4 p-12 border-b-2 border-gray-300">
    <img src={`${process.env.TMDB_IMG_URL}${movie.moviePosterPath}`} alt="${title}" className="w-64"/>
-    <div className="curator">
-        {movie.member} selected this week's movie
-    </div>
-
     <div className="movie-info">
         <h3>{movie.movieTitle} {movie.movieReleaseDate? `(${movie.movieReleaseDate.substring(0,4)})`: ""}</h3>
     </div>
-
+    <div className="curator">
+        {movie.member} has selected this week's movie
+    </div>
     <div className="overview">
         <a href={`https://letterboxd.com/tmdb/${movie.movieId}`} target="_blank" rel="noopener noreferrer">Open in LetterBoxd</a>
         <p>
