@@ -1,4 +1,8 @@
 # movieclub app latest v3.0
+for local development
+`% pnpm dev`
+for db exploration
+`% pnpm run db:studio`
 
 ## TODO
 - [x] Make it deploy (Vercel)
