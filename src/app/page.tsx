@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { db } from "~/server/db";
 import { getTrendingMovies } from "~/api/tmdb_calls";
-// import { listItems, movieLists, movies } from "~/server/db/schema";
+import { movie_tables } from "~/server/db/schema";
 import { sql } from "drizzle-orm";
+
+export const dynamic = 'force-dynamic';
 
 async function APITester() {
   const res = await getTrendingMovies();
@@ -88,6 +90,8 @@ async function ThisWeeksMovie() {
 
 
 export default async function HomePage() {
+  const tst_movietable = await db.select().from(movie_tables);
+  console.log("Test movie table from Drizzle ORM:", tst_movietable); 
   return (
     <main className="">
         <ThisWeeksMovie />

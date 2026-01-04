@@ -11,16 +11,25 @@ import { index, pgTableCreator } from "drizzle-orm/pg-core";
  */
 export const createTable = pgTableCreator((name) => `movieapp_${name}`);
 
-export const posts = createTable(
-  "post",
+export const movie_tables = createTable(
+  "movie_table",
   (d) => ({
-    id: d.integer().primaryKey().generatedByDefaultAsIdentity(),
-    name: d.varchar({ length: 256 }),
+    hkey: d.integer().primaryKey().generatedByDefaultAsIdentity(),
+    listTitle: d.varchar({ length: 256 }),
+    listId: d.integer(),
+    listDescription: d.text(),
+    movieId: d.integer(),
+    movieTitle: d.varchar({ length: 256 }),
+    movieOverview: d.text(),
+    moviePosterPath: d.varchar({ length: 512 }),
+    movieReleaseDate: d.varchar({ length: 64 }),
+    userNm: d.varchar({ length: 128 }),
+    watched: d.boolean().default(false).notNull(),
     createdAt: d
       .timestamp({ withTimezone: true })
       .$defaultFn(() => /* @__PURE__ */ new Date())
       .notNull(),
     updatedAt: d.timestamp({ withTimezone: true }).$onUpdate(() => new Date()),
   }),
-  (t) => [index("name_idx").on(t.name)],
+  (t) => [index("name_idx1").on(t.hkey)],
 );
