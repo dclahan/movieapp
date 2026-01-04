@@ -61,19 +61,17 @@ async function Movies() {
 }
 
 async function ThisWeeksMovie() {
-  const movies = [{"movieId": 1, "movieTitle": "Test Movie 1", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2023-01-01", "userID": "alice", "movieOverview": "This is a test movie movieOverview. It is meant to be a brief summary of the movie plot."},
-    {"movieId": 2, "movieTitle": "Test Movie 2", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2024-01-01", "userID": "bob", "movieOverview": "This is a test movie overview 2. It is meant to be a brief summary of the movie plot."}
-  ];
+  const movies = await db.select().from(movie_tables).limit(2).orderBy(sql`RANDOM()`);
   return (
     <div className="flex justify-center gap-4">
       {movies.map((movie) => (
-        <div key={movie.movieId+movie.userID} className="flex flex-col justify-center gap-4 border-b-2 border-gray-300">
+        <div key={movie.movieId+"-"+movie.userNm} className="flex flex-col justify-center gap-4 border-b-2 border-gray-300">
         <img src={`${process.env.TMDB_IMG_URL}${movie.moviePosterPath}`} alt="${title}" className="justify-center mx-auto"/>
           <div className="justify-center text-left font-bold text-2xl">
               <h3>{movie.movieTitle} {movie.movieReleaseDate? `(${movie.movieReleaseDate.substring(0,4)})`: ""}</h3>
           </div>
           <div className="justify-center text-left italic">
-              {movie.userID} has selected this week's movie
+              {movie.userNm} has selected this week's movie
           </div>
           <div className="justify-center text-left">
               <a href={`https://letterboxd.com/tmdb/${movie.movieId}`} target="_blank" rel="noopener noreferrer">Open in LetterBoxd</a>
