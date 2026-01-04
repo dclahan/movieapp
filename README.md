@@ -22,8 +22,12 @@ for db exploration
     - movieclub.com/list/{listid}/add/      - to send to the gc (no safety checks yet i trust us (default 2 movies for now?))
     - movieclub.com/list/{listId}
     - movieclub.com/create
-- [ ] make list display from db
+- [x] make list display from db
+    - [ ] (group by usernm!)
 - [ ] curr movies div fixed width rn its flex and its changing depending on movie.overview size
+- [ ] maybe add list constrainsts to data table? 
+    - `movie choice update freq(ex=1week); movieclubstartdate (ex=jan5)`
+    - stuff to help for when add new lists
 - [ ] update add-movies to add list title and desc too,
     - by first fetching the list title and desc first
     - until createlist page, have to add 1st list nm desc manual to db first
@@ -34,4 +38,5 @@ for db exploration
         - randomly from everyone but
             - goes thru everyones 1 (still random) before the next one
         - after picked updates `watched`
+- [ ] clear "movie added successfully" text on new search
 - [ ] error mgmt (Sentry?) dont really need fr rn

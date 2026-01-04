@@ -32,11 +32,7 @@ function groupBy(data: any[], key: string) {
   }
 
 async function Movies() {
-  const listswithMovies = [
-    {"listTitle": "Test List", "listId": 1, "listDescription": "A test list", "movieID": 1, "movieTitle": "Test Movie 1", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2023-01-01", "userID": 1, "userName": "testuser", "watched": false},
-    {"listTitle": "Test List", "listId": 1, "listDescription": "A test list", "movieID": 2, "movieTitle": "Test Movie 2", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2024-01-01", "userID": 2, "userName": "testuser2", "watched": false},
-    {"listTitle": "Test List", "listId": 1, "listDescription": "A test list", "movieID": 3, "movieTitle": "Test Movie 3", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2025-01-01", "userID": 3, "userName": "testuser3", "watched": true}
-  ];
+  const listswithMovies = await db.select().from(movie_tables);
   
   const moviesInLists = groupBy(listswithMovies, "listId");
 
