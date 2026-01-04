@@ -19,9 +19,10 @@
     - movieclub.com/list/{listId}
     - movieclub.com/create
 - [ ] make list display from db
+- [ ] curr movies div fixed width rn its flex and its changing depending on movie.overview size
 - [ ] update add-movies to add list title and desc too,
     - by first fetching the list title and desc first
-    - until createlist page, have to add manual to db first
+    - until createlist page, have to add 1st list nm desc manual to db first
 - [ ] make it pick movies correctly every week
     - fill out database with mock movies (but pretty much same movies and user)
     - test desired functionality
