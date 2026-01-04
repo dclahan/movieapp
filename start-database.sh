@@ -15,9 +15,9 @@
 set -a
 source .env
 
-DB_PASSWORD=$(echo "$STORAGE_URL" | awk -F':' '{print $3}' | awk -F'@' '{print $1}')
-DB_PORT=$(echo "$STORAGE_URL" | awk -F':' '{print $4}' | awk -F'\/' '{print $1}')
-DB_NAME=$(echo "$STORAGE_URL" | awk -F'/' '{print $4}')
+DB_PASSWORD=$(echo "$POSTGRES_URL" | awk -F':' '{print $3}' | awk -F'@' '{print $1}')
+DB_PORT=$(echo "$POSTGRES_URL" | awk -F':' '{print $4}' | awk -F'\/' '{print $1}')
+DB_NAME=$(echo "$POSTGRES_URL" | awk -F'/' '{print $4}')
 DB_CONTAINER_NAME="$DB_NAME-postgres"
 
 if ! [ -x "$(command -v docker)" ] && ! [ -x "$(command -v podman)" ]; then
@@ -81,8 +81,8 @@ fi
 
 $DOCKER_CMD run -d \
   --name $DB_CONTAINER_NAME \
-  -e STORAGE_USER="postgres" \
-  -e STORAGE_PASSWORD="$DB_PASSWORD" \
-  -e STORAGE_DB="$DB_NAME" \
+  -e POSTGRES_USER="postgres" \
+  -e POSTGRES_PASSWORD="$DB_PASSWORD" \
+  -e POSTGRES_DB="$DB_NAME" \
   -p "$DB_PORT":5432 \
   docker.io/postgres && echo "Database container '$DB_CONTAINER_NAME' was successfully created"
