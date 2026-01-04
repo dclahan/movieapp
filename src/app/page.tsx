@@ -88,8 +88,6 @@ async function ThisWeeksMovie() {
 
 
 export default async function HomePage() {
-  const tst_movietable = await db.select().from(movie_tables);
-  console.log("Test movie table from Drizzle ORM:", tst_movietable); 
   return (
     <main className="">
         <ThisWeeksMovie />

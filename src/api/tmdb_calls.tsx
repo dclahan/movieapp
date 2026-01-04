@@ -1,7 +1,7 @@
 
 
 const base_url = "https://api.themoviedb.org/3/";
-const url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc";
+const trending_url = base_url + "discover/movie?sort_by=popularity.desc";
 const error_base = "Failed to fetch data from ";
 
 async function fetcher(url: string, messageError: string) {
@@ -20,7 +20,7 @@ async function fetcher(url: string, messageError: string) {
 }
 
 export async function getTrendingMovies() {
-  return await fetcher(url, error_base + "trending");
+  return await fetcher(trending_url, error_base + "trending");
 }
 
 export async function searchMovie(query: string, indexPage: number) {
