@@ -40,14 +40,14 @@ async function Movies() {
 
   return (
       moviesInLists.map((listObject: any[]) => (
-        <div key={listObject[0].listId} className=" flex p-2 flex-col w-500 gap-2">
+        <div key={listObject[0].listId} className=" flex p-2 flex-col w-full gap-2">
           <div className="flex flex-row gap-2">
           <div>{listObject[0].listTitle}:</div>
           <div>{listObject[0].listDescription}</div>
           </div>
-          <div key={listObject[0].listId} className=" flex p-2 flex-row w-500 gap-4">
+          <div key={listObject[0].listId} className=" flex p-2 flex-row w-full gap-4">
             {listObject.map(movie => (
-              <div key={movie.movieId} className=" flex w-48 p-2 flex-col gap-2">
+              <div key={movie.movieID + movie.userID} className=" flex w-48 p-2 flex-col gap-2">
               <img src={`${process.env.TMDB_IMG_URL}${movie.moviePosterPath}`} alt={`movie ${movie.movieTitle}`} className={movie.watched ? "opacity-50" : ""}/>
               <div>{movie.movieTitle} {movie.movieReleaseDate? `(${movie.movieReleaseDate.substring(0,4)})`: ""}</div>
               </div>
@@ -59,24 +59,30 @@ async function Movies() {
 }
 
 async function ThisWeeksMovie() {
-  const movie = {"movieId": 1, "movieTitle": "Test Movie 1", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2023-01-01", "member": "alice", "overview": "This is a test movie overview. It is meant to be a brief summary of the movie plot.", "vote_average": 7.5};
+  const movies = [{"movieId": 1, "movieTitle": "Test Movie 1", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2023-01-01", "userID": "alice", "movieOverview": "This is a test movie movieOverview. It is meant to be a brief summary of the movie plot."},
+    {"movieId": 2, "movieTitle": "Test Movie 2", "moviePosterPath": "/tIh8spVpYapjGjC21e0aK09VlY5.jpg", "movieReleaseDate": "2024-01-01", "userID": "bob", "movieOverview": "This is a test movie overview 2. It is meant to be a brief summary of the movie plot."}
+  ];
   return (
-  <div className="flex flex-col justify-center gap-4 p-12 border-b-2 border-gray-300">
-   <img src={`${process.env.TMDB_IMG_URL}${movie.moviePosterPath}`} alt="${title}" className="w-64"/>
-    <div className="movie-info">
-        <h3>{movie.movieTitle} {movie.movieReleaseDate? `(${movie.movieReleaseDate.substring(0,4)})`: ""}</h3>
-    </div>
-    <div className="curator">
-        {movie.member} has selected this week's movie
-    </div>
-    <div className="overview">
-        <a href={`https://letterboxd.com/tmdb/${movie.movieId}`} target="_blank" rel="noopener noreferrer">Open in LetterBoxd</a>
-        <p>
-        {movie.overview}
-        </p>
-    </div>
-  </div>
-  );
+    <div className="flex justify-center gap-4">
+      {movies.map((movie) => (
+        <div key={movie.movieId+movie.userID} className="flex flex-col justify-center gap-4 border-b-2 border-gray-300">
+        <img src={`${process.env.TMDB_IMG_URL}${movie.moviePosterPath}`} alt="${title}" className="justify-center mx-auto"/>
+          <div className="justify-center text-left font-bold text-2xl">
+              <h3>{movie.movieTitle} {movie.movieReleaseDate? `(${movie.movieReleaseDate.substring(0,4)})`: ""}</h3>
+          </div>
+          <div className="justify-center text-left italic">
+              {movie.userID} has selected this week's movie
+          </div>
+          <div className="justify-center text-left">
+              <a href={`https://letterboxd.com/tmdb/${movie.movieId}`} target="_blank" rel="noopener noreferrer">Open in LetterBoxd</a>
+              <p>
+              {movie.movieOverview}
+              </p>
+          </div>
+        </div>
+        ))}
+    </div> 
+    );
 }
 
 

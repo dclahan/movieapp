@@ -34,14 +34,14 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 ## TODO
 - [x] Make it deploy (Vercel)
 - [ ] Scaffold basic UI with mock data
-    - [ ] topnav
-    - [ ] club list page
+    - [x] topnav
+    - [x] club list page
     - [ ] add movies page (init club list)
-    - [ ] no homepage
+    - [x] no homepage
     - [ ] init club list page (hidden url for now just me)
 - [ ] Set up db 
 - [ ] atttach db to UI
-- [ ] set up tmdb API (adds movie info to our db when added to list (add mov page))
+- [x] set up tmdb API (adds movie info to our db when added to list (add mov page))
 - [ ] hand over to LLM with specs for my 3 pages
 - [ ] routing (club page)
 - [ ] error mgmt (Sentry?) dont really need
