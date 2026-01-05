@@ -24,7 +24,7 @@ export default function AddMovieForm({ listId }: AddMovieFormProps) {
     setLoadingSearch(true);
     setError('');
     try {
-      const res = await fetch(`/list/api/search-movie?query=${encodeURIComponent(query)}`);
+      const res = await fetch(`/api/search-movie?query=${encodeURIComponent(query)}`);
       if (!res.ok) throw new Error((await res.json()).error || 'Search failed');
       const data = await res.json();
       setResults(data.results ?? []);
@@ -39,7 +39,7 @@ export default function AddMovieForm({ listId }: AddMovieFormProps) {
     setAddingMovieId(movieId);
     setError('');
     try {
-      const res = await fetch('/list/api/add-movie', {
+      const res = await fetch('/api/add-movie', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ listId, userNm: name, movieId }),

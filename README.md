@@ -23,15 +23,15 @@ for db exploration
     - movieclub.com/list/{listId}
     - movieclub.com/create
 - [x] make list display from db
-    - [ ] (group by usernm!)
+    - [x] (group by usernm!)
 - [ ] curr movies div fixed width rn its flex and its changing depending on movie.overview size
-- [ ] maybe add list constrainsts to data table? 
+- [x] maybe add list constrainsts to data table? 
     - `movie choice update freq(ex=1week); movieclubstartdate (ex=jan5)`
     - stuff to help for when add new lists
 - [ ] update add-movies to add list title and desc too,
     - by first fetching the list title and desc first
     - until createlist page, have to add 1st list nm desc manual to db first
-- [ ] make it pick movies correctly every week
+- [x] make it pick movies correctly every week
     - fill out database with mock movies (but pretty much same movies and user)
     - test desired functionality
         - new movie(s) each week,

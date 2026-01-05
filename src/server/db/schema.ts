@@ -18,12 +18,14 @@ export const movie_tables = createTable(
     listTitle: d.varchar({ length: 256 }),
     listId: d.integer(),
     listDescription: d.text(),
+    startDate: d.timestamp({ withTimezone: true }),
     movieId: d.integer(),
     movieTitle: d.varchar({ length: 256 }),
     movieOverview: d.text(),
     moviePosterPath: d.varchar({ length: 512 }),
     movieReleaseDate: d.varchar({ length: 64 }),
-    userNm: d.varchar({ length: 128 }),
+    userNm: d.varchar({ length: 128 }).notNull(),
+    currentWeek: d.integer(),
     watched: d.boolean().default(false).notNull(),
     createdAt: d
       .timestamp({ withTimezone: true })
