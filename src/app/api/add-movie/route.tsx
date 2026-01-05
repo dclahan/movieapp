@@ -10,15 +10,23 @@ export async function POST(request: Request) {
     return new Response(JSON.stringify({ error: 'Missing data' }), { status: 400 });
   }
 
-  // Optional: limit to 2 movies per user per list
-//   const existingCount = await db
-//     .select({ count: sql`COUNT(*)` })
-//     .from(movie_tables)
-//     .where(and(eq(movie_tables.listId, Number(listId)), eq(movie_tables.userNm, userNm)));
+  // fetch list data from db, listTitle, listDescription, startDate, and use that to insert new movie
+  const listData = await db
+    .select({
+      listTitle: movie_tables.listTitle,
+      listDescription: movie_tables.listDescription,
+      startDate: movie_tables.startDate,
+    })
+    .from(movie_tables)
+    .where(eq(movie_tables.listId, Number(listId)))
+    .limit(1);
 
-//   if (existingCount[0].count >= 2) {
-//     return new Response(JSON.stringify({ error: 'You can only add up to 2 movies per list' }), { status: 400 });
-//   }
+  const row = listData[0];
+  if (!row) {
+    return new Response(JSON.stringify({ error: 'List not found' }), { status: 404 });
+  }
+
+  const { listTitle, listDescription, startDate } = row;
 
   try {
     const details = await getDetailsMovie(movieId);
@@ -26,6 +34,9 @@ export async function POST(request: Request) {
 
     await db.insert(movie_tables).values({
       listId: Number(listId),
+      listTitle,
+      listDescription,
+      startDate,
       userNm,
       movieId,
       movieTitle: title,

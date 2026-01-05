@@ -41,7 +41,7 @@ export default function Movies() {
       {Object.entries(grouped).map(([user, movies]) => (
         <section key={user} className="space-y-4">
           <h2 className="text-xl font-semibold">{user}</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             {movies.map(m => (
               <div key={`${m.movieId}-${m.userNm}`} className="flex flex-col items-center">
                 <img
