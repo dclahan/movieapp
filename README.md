@@ -40,3 +40,6 @@ for db exploration
         - after picked updates `watched`
 - [ ] clear "movie added successfully" text on new search
 - [ ] error mgmt (Sentry?) dont really need fr rn
+- [ ] thumbs up button for users to "rate" the movie on the site! 
+    - see how many thumbsed it up, thumbed it down!
+- [ ] click on movie poster for letterboxd/overview
