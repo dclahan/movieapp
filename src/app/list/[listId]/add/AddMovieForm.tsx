@@ -23,6 +23,7 @@ export default function AddMovieForm({ listId }: AddMovieFormProps) {
     if (!query.trim()) return;
     setLoadingSearch(true);
     setError('');
+    setSuccessMsg('');
     try {
       const res = await fetch(`/api/search-movie?query=${encodeURIComponent(query)}`);
       if (!res.ok) throw new Error((await res.json()).error || 'Search failed');
@@ -55,7 +56,7 @@ export default function AddMovieForm({ listId }: AddMovieFormProps) {
 
   return (
     <div className="p-4 max-w-3xl mx-auto">
-      <h2 className="text-xl font-semibold mb-4">Add a Movie to List {listId}</h2>
+      <h2 className="text-xl font-semibold mb-4">Add a Movie to List listTitle</h2>
 
       <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2 mb-4">
         <input

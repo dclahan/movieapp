@@ -38,13 +38,17 @@ for db exploration
         - randomly from everyone but
             - goes thru everyones 1 (still random) before the next one
         - after picked updates `watched`
-- [ ] add list create page (create new list button top right)
-    - list name, desc, start date to create - maek placeholder then remove after movie put in? seems odd, should change db
+- [x] make top left banner href back to homepage
 - [ ] add actual home page to see different lists
+    - have visible small icons of that lists currMovies? or too much of a big db call 
+        - `select movieposter, currweek from movies where currweek=max(currweek) group by listId`
     - move list view to `/list/[listId]/page.tsx`
-- [ ] make top left banner href back to homepage
+- [ ] add list create page 
+    - [x] (create new list button top right)
+    - list name, desc, start date to create - make a placeholder then remove after movie put in? seems odd, should change db
+- [ ] add placeholder page "empty/loading" icons for before page loads
 - [ ] safety check for undef behavior in curr section before start/after end
-- [ ] click on movie poster in list for overview -> letterboxd
+- [ ] click on movie poster in list for overview ->? letterboxd
 
 
 new functionality
@@ -55,7 +59,7 @@ new functionality
 - [ ] hard limit num movies added by user (ratelimit ip? browser/device fingerprinting?)
 
 cosmetic
-- [ ] clear "movie added successfully" text on new search or make it a toast (shadcn deprecated toast)
+- [x] clear "movie added successfully" text on new search or make it a toast (shadcn deprecated toast)
 - [ ] make desktop list not just 2 movies wide
 - [ ] make the order random? like of the peoples movies
 - [ ] click on movie poster for overview -> letterboxd

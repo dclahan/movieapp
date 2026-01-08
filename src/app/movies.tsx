@@ -32,12 +32,14 @@ export default function Movies() {
 
   // keep only listId===1
   const filtered = useMemo(() => data.filter(m => m.listId === 1), [data]);
+  const list_title = filtered[0]?.listTitle || '';
 
   // group by userNm
   const grouped = useMemo(() => groupBy(filtered, "userNm"), [filtered]);
 
   return (
     <div className="space-y-8 p-4">
+      <div className="text-2xl font-bold">{list_title}</div>
       {Object.entries(grouped).map(([user, movies]) => (
         <section key={user} className="space-y-4">
           <h2 className="text-xl font-semibold">{user}</h2>
