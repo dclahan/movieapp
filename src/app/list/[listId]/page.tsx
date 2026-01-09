@@ -1,8 +1,13 @@
-// put in the current app/page.tsx file code, with changes to account for listId param
-// move currMovies.tsx and movies.tsx into this folder too, need to update imports accordingly
+import Movies from "./movies";
+import ThisWeeksMovie from "./currMovies";
 
-export default async function ListPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function ListPage({ params }: { params: { listId: string } }) {
   return (
-    <div>placeholder</div>
+    <main className="">
+        <ThisWeeksMovie listId={params.listId}/>
+        <Movies listId={params.listId}/>
+    </main>
   );
 }

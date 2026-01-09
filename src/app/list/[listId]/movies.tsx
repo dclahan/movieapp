@@ -1,9 +1,13 @@
 'use client';
 
 import { useEffect, useState, useMemo } from "react";
-import type Movie from "./helpers/types";
+import type Movie from "../../helpers/types";
 
 const poster_path = 'https://image.tmdb.org/t/p/w500';
+
+interface ListProps {
+  listId: string;
+}
 
 export function groupBy<T, K extends keyof T>(
     array: T[],
@@ -17,7 +21,7 @@ export function groupBy<T, K extends keyof T>(
     }, {} as Record<string, T[]>);
   }
 
-export default function Movies() {
+export default function Movies({ listId }: ListProps) {
   const [data, setData] = useState<Movie[]>([]);
 
   // load once
@@ -30,8 +34,8 @@ export default function Movies() {
     fetchMovie();
   }, []);
 
-  // keep only listId===1
-  const filtered = useMemo(() => data.filter(m => m.listId === 1), [data]);
+  // display movies with this listId
+  const filtered = useMemo(() => data.filter(m => m.listId === +listId), [data]);
   const list_title = filtered[0]?.listTitle || '';
 
   // group by userNm

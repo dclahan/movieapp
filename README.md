@@ -42,7 +42,7 @@ for db exploration
 - [ ] add actual home page to see different lists
     - have visible small icons of that lists currMovies? or too much of a big db call 
         - `select movieposter, currweek from movies where currweek=max(currweek) group by listId`
-    - move list view to `/list/[listId]/page.tsx`
+    - [x] move list view to `/list/[listId]/page.tsx`
 - [ ] add list create page 
     - [x] (create new list button top right)
     - list name, desc, start date to create - make a placeholder then remove after movie put in? seems odd, should change db
@@ -52,14 +52,20 @@ for db exploration
 
 
 new functionality
+- [ ] instead of "start-date/time" in list create, have list be added to 
 - [ ] thumbs up button for users to "rate" the movie on the site! 
     - see how many thumbsed it up, thumbed it down!
     - or just a button to say "i watched"
     - needs whole new db structure for this (or cookies? device fingerprinting?)
 - [ ] hard limit num movies added by user (ratelimit ip? browser/device fingerprinting?)
+- [ ] on create list page 
+    - create list or add functionality of just "pick a movie for tonight" 
+        - which just chooses one movie 
 
 cosmetic
 - [x] clear "movie added successfully" text on new search or make it a toast (shadcn deprecated toast)
+- [x] display list title
+- [ ] display when new movies in curr div (countdown timer?)
 - [ ] make desktop list not just 2 movies wide
 - [ ] make the order random? like of the peoples movies
 - [ ] click on movie poster for overview -> letterboxd
