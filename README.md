@@ -52,6 +52,7 @@ for db exploration
 
 
 new functionality
+- [ ] LOCK add-movie page after startDate?? to ensure everyone's in ... tempting
 - [ ] instead of "start-date/time" in list create, have list be added to and then creator gets to press button that says "START THE CLUB"
 - [ ] thumbs up button for users to "rate" the movie on the site! 
     - see how many thumbsed it up, thumbed it down!
@@ -65,6 +66,7 @@ new functionality
 cosmetic
 - [x] clear "movie added successfully" text on new search or make it a toast (shadcn deprecated toast)
 - [x] display list title
+- [ ] after movie chosen along w opacity 50% text overlay with m.currWeek to see when watched
 - [ ] make homepage prettier
 - [ ] click on movie poster for overview -> letterboxd
 - [ ] make the order random? like of the people
