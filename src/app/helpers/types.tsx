@@ -1,4 +1,4 @@
-export default interface Movie {
+export interface Movie {
   hkey: number;
   listTitle: string;
   listId: number;
@@ -10,4 +10,9 @@ export default interface Movie {
   movieReleaseDate: string;
   userNm: string;
   watched: boolean;
+}
+export interface ListInfo {
+  listId: number;
+  listTitle: string;
+  startDate: string;
 }

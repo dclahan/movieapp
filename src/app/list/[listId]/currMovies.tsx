@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import type Movie from "../../helpers/types";
+import type {Movie} from "../../helpers/types";
 
 const posterPath = 'https://image.tmdb.org/t/p/w500';
 

@@ -1,9 +1,10 @@
 export const dynamic = 'force-dynamic';
+import DisplayLists from "./display-lists";
 
 export default async function HomePage() {
   return (
     <main className="">
-        <div className="mb-8"> Homepage placeholder </div>
+        <DisplayLists />
     </main>
   );
 }

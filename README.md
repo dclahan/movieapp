@@ -39,20 +39,20 @@ for db exploration
             - goes thru everyones 1 (still random) before the next one
         - after picked updates `watched`
 - [x] make top left banner href back to homepage
-- [ ] add actual home page to see different lists
+- [x] add actual home page to see different lists
     - have visible small icons of that lists currMovies? or too much of a big db call 
         - `select movieposter, currweek from movies where currweek=max(currweek) group by listId`
     - [x] move list view to `/list/[listId]/page.tsx`
+- [x] (create new list button top right)
 - [ ] add list create page 
-    - [x] (create new list button top right)
     - list name, desc, start date to create - make a placeholder then remove after movie put in? seems odd, should change db
-- [ ] add placeholder page "empty/loading" icons for before page loads
+- [ ] add skeleton components for before page loads ("empty/loading" icons)
 - [ ] safety check for undef behavior in curr section before start/after end
 - [ ] click on movie poster in list for overview ->? letterboxd
 
 
 new functionality
-- [ ] instead of "start-date/time" in list create, have list be added to 
+- [ ] instead of "start-date/time" in list create, have list be added to and then creator gets to press button that says "START THE CLUB"
 - [ ] thumbs up button for users to "rate" the movie on the site! 
     - see how many thumbsed it up, thumbed it down!
     - or just a button to say "i watched"
@@ -60,21 +60,23 @@ new functionality
 - [ ] hard limit num movies added by user (ratelimit ip? browser/device fingerprinting?)
 - [ ] on create list page 
     - create list or add functionality of just "pick a movie for tonight" 
-        - which just chooses one movie 
+        - which just chooses one movie
 
 cosmetic
 - [x] clear "movie added successfully" text on new search or make it a toast (shadcn deprecated toast)
 - [x] display list title
-- [ ] display when new movies in curr div (countdown timer?)
-- [ ] make desktop list not just 2 movies wide
-- [ ] make the order random? like of the peoples movies
+- [ ] make homepage prettier
 - [ ] click on movie poster for overview -> letterboxd
+- [ ] make the order random? like of the people
+- [ ] display when new movies will load in curr div (countdown timer? `pnpm install react-countdown --save`) research [react-countdown](https://github.com/ndresx/react-countdown)
+- [ ] make desktop list not just 2 movies wide
 - [ ] optimize for mobile
 - [ ] [shadcn components](https://ui.shadcn.com/docs/components) OR [8BITCN COMPONENTS](https://www.8bitcn.com/docs)
     - [ ] datepicker for list init startdate
     - [ ] or just `field` for list init
     - [ ] input box for inputs (usernm, search box)
     - [ ] empty for empty list (but should prompt creator to be first to add to list right after create list anyway)
+- [ ] skeleton components
 
 infra
 - [ ] error mgmt (Sentry)
