@@ -50,11 +50,18 @@ export default function Movies({ listId }: ListProps) {
           <div className="grid grid-cols-2 gap-4">
             {movies.map(m => (
               <div key={`${m.movieId}-${m.userNm}`} className="flex flex-col items-center">
-                <img
-                  src={`${poster_path}${m.moviePosterPath}`}
-                  alt={`poster of ${m.movieTitle}`}
-                  className={`w-48 h-auto object-cover rounded shadow ${m.watched ? "opacity-50" : ""}`}
-                />
+                <div className="relative text-center">
+                  <img
+                    src={`${poster_path}${m.moviePosterPath}`}
+                    alt={`poster of ${m.movieTitle}`}
+                    className={`w-48 h-auto object-cover rounded shadow ${m.watched ? "opacity-50" : ""}`}
+                  />
+                  <div className="w-full absolute top-0 left-0 text-center mt-20">
+                    <h2 className="text-4xl font-bold text-gray-200 text-center opacity-50 drop-shadow-lg">
+                      { m.watched ? `Week ${m.currentWeek} Pick` : "" }
+                    </h2>
+                  </div>
+                </div>
                 <p className="mt-2 text-center">
                   {m.movieTitle}
                   {m.movieReleaseDate

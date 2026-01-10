@@ -10,6 +10,7 @@ export interface Movie {
   movieReleaseDate: string;
   userNm: string;
   watched: boolean;
+  currentWeek: number;
 }
 export interface ListInfo {
   listId: number;
