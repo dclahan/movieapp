@@ -112,7 +112,7 @@ export async function GET(request: Request) {
     const weekToSet = weekNo ?? 1;
     await db.update(movie_tables)
       .set({ watched: true, currentWeek: weekToSet })
-      .where(inArray(movie_tables.movieId, ids));
+      .where(and(inArray(movie_tables.movieId, ids), eq(movie_tables.listId, +listId)));
   }
 
   return new Response(JSON.stringify(selected), { status: 200 });

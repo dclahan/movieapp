@@ -44,8 +44,17 @@ for db exploration
         - `select movieposter, currweek from movies where currweek=max(currweek) group by listId`
     - [x] move list view to `/list/[listId]/page.tsx`
 - [x] (create new list button top right)
-- [ ] add list create page 
+- [ ] add list create page `/list/create`
     - list name, desc, start date to create - make a placeholder then remove after movie put in? seems odd, should change db
+    - think i gotta change db
+        - keep this same one same, but only list id
+    - if no change db then process would be
+        - find `newID := max(listID)` from db make new one +1, have form for input
+            - list Title
+            - list Description
+            - list start date
+            - user name
+            - first movie
 - [ ] add skeleton components for before page loads ("empty/loading" icons)
 - [ ] safety check for undef behavior in curr section before start/after end
 - [ ] click on movie poster in list for overview ->? letterboxd

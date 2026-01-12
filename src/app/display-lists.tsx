@@ -8,15 +8,15 @@ const poster_path = 'https://image.tmdb.org/t/p/w500';
 export default function DisplayLists() {
     const [data, setData] = useState<ListInfo[]>([]);
     
-      // load once
-      useEffect(() => {
-        async function fetchListInfo() {
-          const res = await fetch("/api/list-info");
-          const json: ListInfo[] = await res.json();
-          setData(json);
-        }
-        fetchListInfo();
-      }, []);
+    // load once
+    useEffect(() => {
+    async function fetchListInfo() {
+        const res = await fetch("/api/list-info");
+        const json: ListInfo[] = await res.json();
+        setData(json);
+    }
+    fetchListInfo();
+    }, []);
 
     return (
         <div className="space-y-8 p-4">
