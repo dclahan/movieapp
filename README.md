@@ -46,8 +46,8 @@ to update db
         - `select movieposter, currweek from movies where currweek=max(currweek) group by listId`
     - [x] move list view to `/list/[listId]/page.tsx`
 - [x] (create new list button top right)
-- [ ] add list create page `/list/create`
-    - [ ] add numCurrMovies to db
+- [x] add list create page `/list/create`
+    - [x] add numCurrMovies to db
     - list name, desc, start date to create - make a placeholder then remove after movie put in? seems odd, should change db
     - think i gotta change db
         - keep this same one same, but only list id
@@ -61,8 +61,10 @@ to update db
             - first movie
         - make button thats like "start now" and shit? instead of setting start date at list init and waiting like overnight, can get movies now at press of button (instead of curr display "get new movies/start club" button)
     - if have list table, also have list-passphrase as col, have creator set passphrase, and have users submit it to add to list (different one for remove/change?)
+- [ ] start list button
 - [ ] add skeleton components for before page loads ("empty/loading" icons)
 - [ ] safety check for undef behavior in curr section before start/after end
+    - changing to check if no start-date: then do start list button
 - [ ] click on movie poster in list for overview ->? letterboxd
 - [ ] instead of everytime checking for is-weekCurr current?
     - have a button show up after a week (Select new movies)
@@ -72,8 +74,8 @@ to update db
 
 
 new functionality
-- [ ] LOCK add-movie page after startDate?? to ensure everyone's in ... tempting
 - [ ] instead of "start-date/time" in list create, have list be added to and then creator gets to press button that says "START THE CLUB"
+- [ ] LOCK add-movie page after startDate?? to ensure everyone's in ... tempting -- no just doing startlist button to specify
 - [ ] thumbs up button for users to "rate" the movie on the site!
     - see how many thumbsed it up, thumbed it down!
     - or just a button to say "i watched"
@@ -85,8 +87,8 @@ new functionality
 
 cosmetic
 - [x] clear "movie added successfully" text on new search or make it a toast (shadcn deprecated toast)
-- [x] display list title
 - [x] after movie chosen along w opacity 50% text overlay with m.currWeek to see when watched
+- [ ] display list title in add movie page
 - [ ] make homepage prettier
     - [ ] display curr-movies...?
 - [ ] click on movie poster for overview -> letterboxd
