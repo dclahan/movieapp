@@ -10,7 +10,7 @@ export default function CreateListForm() {
   const [name, setName] = useState('');
   const [listTitle, setListTitle] = useState('');
   const [listDescription, setListDescription] = useState('');
-  const [startDate, setStartDate] = useState('');
+  // const [startDate, setStartDate] = useState('');
   const [listId, setListId] = useState('');
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
@@ -55,10 +55,11 @@ export default function CreateListForm() {
     setAddingMovieId(movieId);
     setError('');
     try {
+      // TODO: call new api route "create-list" to create list and add first movie, passing in listTitle, listDescription as well
       const res = await fetch('/api/add-movie', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ listId: listId, userNm: name, movieId }),
+        body: JSON.stringify({ listId, userNm: name, movieId, listTitle, listDescription }),
       });
       if (!res.ok) throw new Error((await res.json()).error || 'Add failed');
       setSuccessMsg('Movie added successfully!');
