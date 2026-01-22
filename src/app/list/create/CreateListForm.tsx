@@ -102,7 +102,7 @@ export default function CreateListForm() {
 
 
           {/* Share Link Section */}
-          <div className="bg-white rounded-lg border p-4 shadow-sm">
+          <div className="rounded-lg border p-4 shadow-sm">
             <h3 className="text-lg font-semibold mb-2">Invite Others to Add Movies</h3>
             <p className="text-gray-600 mb-4">Share this link with your friends so they can add their movies to the list:</p>
             
@@ -159,7 +159,7 @@ export default function CreateListForm() {
 
         <div className="space-y-6">
           {/* View List Button */}
-          <div className="bg-white rounded-lg border p-4 shadow-sm">
+          <div className="rounded-lg border p-4 shadow-sm">
             <h3 className="text-lg font-semibold mb-2">Add a movie to <span className="font-semibold">{listTitle}</span></h3>
             {/* <p className="text-gray-600 mb-4">View and manage the movies in your list.</p> */}
             <button

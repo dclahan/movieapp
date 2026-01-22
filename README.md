@@ -62,6 +62,7 @@ to update db
         - make button thats like "start now" and shit? instead of setting start date at list init and waiting like overnight, can get movies now at press of button (instead of curr display "get new movies/start club" button)
     - if have list table, also have list-passphrase as col, have creator set passphrase, and have users submit it to add to list (different one for remove/change?)
 - [ ] start list button
+- [ ] link back to list page from add movies page
 - [ ] add skeleton components for before page loads ("empty/loading" icons)
 - [ ] safety check for undef behavior in curr section before start/after end
     - changing to check if no start-date: then do start list button
