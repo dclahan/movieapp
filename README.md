@@ -3,6 +3,8 @@ for local development
 `% pnpm dev`
 for db exploration
 `% pnpm run db:studio`
+to update db
+`% pnpm run db:push`
 
 ## TODO
 - [x] Make it deploy (Vercel)
@@ -45,6 +47,7 @@ for db exploration
     - [x] move list view to `/list/[listId]/page.tsx`
 - [x] (create new list button top right)
 - [ ] add list create page `/list/create`
+    - [ ] add numCurrMovies to db
     - list name, desc, start date to create - make a placeholder then remove after movie put in? seems odd, should change db
     - think i gotta change db
         - keep this same one same, but only list id
@@ -65,6 +68,7 @@ for db exploration
     - have a button show up after a week (Select new movies)
     - have the button trigger the new movies being picked function..?
     - and then show this weeks movies and hide
+- [ ] remove/edit movies
 
 
 new functionality

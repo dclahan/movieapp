@@ -6,11 +6,16 @@ import { no } from 'zod/v4/locales';
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const listId = url.searchParams.get('listId')??'0';
-  // get list startDate for listId=1
+
   const startRows = await db.select({ startDate: movie_tables.startDate })
     .from(movie_tables)
     .where(eq(movie_tables.listId, +listId))
     .limit(1);
+
+  // if no start date, return empty array
+  if (!startRows[0]?.startDate) {
+    return new Response(JSON.stringify([]), { status: 200 });
+  }
 
   const startDate = startRows[0]?.startDate;
   const now = new Date();
@@ -59,7 +64,11 @@ export async function GET(request: Request) {
     return acc;
   }, {});
 
-  const desired = 2; // number of movies to select this week
+  const desired = await db.select({ numCurr: movie_tables.numCurr })
+    .from(movie_tables)
+    .where(eq(movie_tables.listId, +listId))
+    .limit(1)
+    .then(rows => rows[0]?.numCurr ?? 2); // number of movies to select this week
   const selected: MovieRow[] = [];
 
   

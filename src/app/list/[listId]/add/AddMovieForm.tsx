@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-// import type { MovieResult } from '~/api/tmdb_calls'; // you can add a TS interface if you like
 
 interface AddMovieFormProps {
   listId: string;
