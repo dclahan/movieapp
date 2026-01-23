@@ -27,7 +27,7 @@ export default function Movies({ listId }: ListProps) {
   // load once
   useEffect(() => {
     async function fetchMovie() {
-      const res = await fetch("/api/movies");
+      const res = await fetch(`/api/movies?listId=${listId}`);
       const json: Movie[] = await res.json();
       setData(json);
     }
