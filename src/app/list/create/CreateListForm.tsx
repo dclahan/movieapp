@@ -22,6 +22,7 @@ export default function CreateListForm() {
   const [successMsg, setSuccessMsg] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [addLink, setAddLink] = useState('');
       
   // load once
   useEffect(() => {
@@ -34,7 +35,10 @@ export default function CreateListForm() {
     fetchListInfoSetNewId();
     }, []);
 
-  const addLink = `${window.location.origin}/list/${listId}/add`;
+    useEffect(() => {
+      const addLinkEffect = `${window.location.origin}/list/${listId}/add`;
+      setAddLink(addLinkEffect);
+    })
 
   const handleCopyLink = async () => {
     try {

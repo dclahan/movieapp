@@ -63,6 +63,7 @@ to update db
     - if have list table, also have list-passphrase as col, have creator set passphrase, and have users submit it to add to list (different one for remove/change?)
 - [ ] start list button
 - [ ] link back to list page from add movies page
+- [ ] remove/edit movies
 - [ ] add skeleton components for before page loads ("empty/loading" icons)
 - [ ] safety check for undef behavior in curr section before start/after end
     - changing to check if no start-date: then do start list button
@@ -71,7 +72,6 @@ to update db
     - have a button show up after a week (Select new movies)
     - have the button trigger the new movies being picked function..?
     - and then show this weeks movies and hide
-- [ ] remove/edit movies
 
 
 new functionality
@@ -98,7 +98,7 @@ cosmetic
 - [ ] make desktop list not just 2 movies wide
 - [ ] optimize for mobile
 - [ ] [shadcn components](https://ui.shadcn.com/docs/components) OR [8BITCN COMPONENTS](https://www.8bitcn.com/docs)
-    - [ ] datepicker for list init startdate
+    - [ ] ~~datepicker for list init startdate~~
     - [ ] or just `field` for list init
     - [ ] input box for inputs (usernm, search box)
     - [ ] empty for empty list (but should prompt creator to be first to add to list right after create list anyway)
