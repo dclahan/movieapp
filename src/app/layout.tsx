@@ -12,8 +12,12 @@ export const metadata: Metadata = {
 function TopNav() {
   return (
     <nav className="w-full justify-between h-12 border-b border-gray-300 flex items-center px-4 text-xl">
-      <div className="text-lg font-bold">Movie Club</div>
-      <div className="text-lg font-bold">yaaayyy</div>
+      <div className="text-lg font-bold">
+        <a href="/">Movie Club</a>
+      </div>
+      <div className="text-lg font-bold">
+        <a href="/list/create">Create a List</a>
+      </div>
     </nav>
   );
 }

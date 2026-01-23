@@ -1,15 +1,15 @@
 'use client';
 import { useEffect, useState } from "react";
-import type Movie from "./helpers/types";
+import type {Movie} from "../../helpers/types";
 
 const posterPath = 'https://image.tmdb.org/t/p/w500';
 
-export default function ThisWeeksMovie() {
+export default function ThisWeeksMovie({listId}: {listId: string}) {
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     async function fetchWeekly() {
-      const res = await fetch("/api/weekly-movies");
+      const res = await fetch(`/api/weekly-movies?listId=${listId}`);
       if (!res.ok) throw new Error("Failed to load movies");
       const json: Movie[] = await res.json();
       setMovies(json);

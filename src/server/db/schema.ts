@@ -27,6 +27,7 @@ export const movie_tables = createTable(
     userNm: d.varchar({ length: 128 }).notNull(),
     currentWeek: d.integer(),
     watched: d.boolean().default(false).notNull(),
+    numCurr: d.integer(),
     createdAt: d
       .timestamp({ withTimezone: true })
       .$defaultFn(() => /* @__PURE__ */ new Date())

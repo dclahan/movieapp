@@ -2,33 +2,13 @@ import { db } from '~/server/db';
 import { movie_tables } from '~/server/db/schema';
 import { getDetailsMovie } from '~/api/tmdb_calls';
 import { sql, and, eq } from 'drizzle-orm';
-import { numKeys } from 'node_modules/zod/v4/core/util.cjs';
 
 export async function POST(request: Request) {
-  const { listId, userNm, movieId } = await request.json();
+  const { listId, userNm, movieId, listTitle, listDescription, numCurr } = await request.json();
 
-  if (!listId || !userNm || !movieId) {
+  if (!listId || !userNm || !movieId || !listTitle || !listDescription) {
     return new Response(JSON.stringify({ error: 'Missing data' }), { status: 400 });
   }
-
-  // fetch list data from db, listTitle, listDescription, startDate, and use that to insert new movie
-  const listData = await db
-    .select({
-      listTitle: movie_tables.listTitle,
-      listDescription: movie_tables.listDescription,
-      startDate: movie_tables.startDate,
-      numCurr: movie_tables.numCurr,
-    })
-    .from(movie_tables)
-    .where(eq(movie_tables.listId, Number(listId)))
-    .limit(1);
-
-  const row = listData[0];
-  if (!row) {
-    return new Response(JSON.stringify({ error: 'List not found' }), { status: 404 });
-  }
-
-  const { listTitle, listDescription, startDate, numCurr } = row;
 
   try {
     const details = await getDetailsMovie(movieId);
@@ -38,7 +18,6 @@ export async function POST(request: Request) {
       listId: Number(listId),
       listTitle,
       listDescription,
-      startDate,
       userNm,
       movieId,
       numCurr,
