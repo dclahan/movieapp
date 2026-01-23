@@ -61,7 +61,7 @@ to update db
             - first movie
         - make button thats like "start now" and shit? instead of setting start date at list init and waiting like overnight, can get movies now at press of button (instead of curr display "get new movies/start club" button)
     - if have list table, also have list-passphrase as col, have creator set passphrase, and have users submit it to add to list (different one for remove/change?)
-- [ ] start list button
+- [x] start list button
 - [ ] diplay list title in add movie page
 - [ ] link back to list page from add movies page
 - [ ] remove/edit movies
@@ -97,7 +97,7 @@ cosmetic
 - [x] make desktop create list form better form
 - [ ] click on movie poster for overview -> letterboxd
 - [x] make the order random? like of the people - it pretty much is
-- [ ] display when new movies will load in curr div (countdown timer? `pnpm install react-countdown --save`) research [react-countdown](https://github.com/ndresx/react-countdown)
+- [x] display when new movies will load in curr div (countdown timer? `pnpm install react-countdown --save`) research [react-countdown](https://github.com/ndresx/react-countdown)
 - [x] make desktop list not just 2 movies wide, dynamic grid systems
 - [ ] optimize for mobile
 - [ ] [shadcn components](https://ui.shadcn.com/docs/components) OR [8BITCN COMPONENTS](https://www.8bitcn.com/docs)

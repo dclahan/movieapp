@@ -4,12 +4,13 @@ import StartListButton from "./startListButton";
 
 export const dynamic = 'force-dynamic';
 
-export default async function ListPage({ params }: { params: { listId: string } }) {
+export default async function ListPage({ params }: { params: Promise<{ listId: string }> }) {
+  const {listId} = await params;
   return (
     <main className="">
-        <StartListButton listId={params.listId} />
-        <ThisWeeksMovie listId={params.listId}/>
-        <Movies listId={params.listId}/>
+        <ThisWeeksMovie listId={listId}/>
+        <StartListButton listId={listId} />
+        <Movies listId={listId}/>
     </main>
   );
 }
