@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface AddMovieFormProps {
   listId: string;
@@ -9,6 +10,7 @@ interface AddMovieFormProps {
 const posterBaseUrl = 'https://image.tmdb.org/t/p/w500';
 
 export default function AddMovieForm({ listId }: AddMovieFormProps) {
+  const router = useRouter();
   const [name, setName] = useState('');
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
@@ -16,6 +18,26 @@ export default function AddMovieForm({ listId }: AddMovieFormProps) {
   const [addingMovieId, setAddingMovieId] = useState<number | null>(null);
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
+  const [listTitle, setListTitle] = useState('Loading...');
+
+  useEffect(() => {
+    async function fetchListTitle() {
+      try {
+        const res = await fetch(`/api/list-name?listId=${listId}`);
+        if (!res.ok) throw new Error('Failed to fetch list title');
+        const data = await res.json();
+        if (data.listTitle) {
+          setListTitle(data.listTitle);
+        } else {
+          setListTitle('Unknown List');
+        }
+      } catch (err) {
+        console.error(err);
+        setListTitle('Unknown List');
+      }
+    }
+    fetchListTitle();
+  })
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,8 +77,14 @@ export default function AddMovieForm({ listId }: AddMovieFormProps) {
 
   return (
     <div className="p-4 max-w-3xl mx-auto">
-      <h2 className="text-xl font-semibold mb-4">Add a Movie to List listTitle</h2>
+      <button
+        onClick={() => router.push(`/list/${listId}`)}
+        className="mb-4 text-blue-600 hover:underline"
+      >
+        Back to {listTitle}
+      </button>
 
+      <h2 className="text-xl font-semibold mb-4">Add a Movie to {listTitle}</h2>
       <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2 mb-4">
         <input
           type="text"
