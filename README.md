@@ -92,10 +92,12 @@ cosmetic
 - [ ] display list title in add movie page
 - [ ] make homepage prettier
     - [ ] display curr-movies...?
+    - [x] make the list a grid
+- [x] make desktop create list form better form
 - [ ] click on movie poster for overview -> letterboxd
-- [ ] make the order random? like of the people
+- [x] make the order random? like of the people - it pretty much is
 - [ ] display when new movies will load in curr div (countdown timer? `pnpm install react-countdown --save`) research [react-countdown](https://github.com/ndresx/react-countdown)
-- [ ] make desktop list not just 2 movies wide
+- [x] make desktop list not just 2 movies wide, dynamic grid systems
 - [ ] optimize for mobile
 - [ ] [shadcn components](https://ui.shadcn.com/docs/components) OR [8BITCN COMPONENTS](https://www.8bitcn.com/docs)
     - [ ] ~~datepicker for list init startdate~~

@@ -23,7 +23,7 @@ export default function CreateListForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
   const [addLink, setAddLink] = useState('');
-      
+
   // load once
   useEffect(() => {
     async function fetchListInfoSetNewId() {
@@ -109,7 +109,7 @@ export default function CreateListForm() {
           <div className="rounded-lg border p-4 shadow-sm">
             <h3 className="text-lg font-semibold mb-2">Invite Others to Add Movies</h3>
             <p className="text-gray-600 mb-4">Share this link with your friends so they can add their movies to the list:</p>
-            
+
             {/* Copyable Link Box */}
             <div className="flex flex-col sm:flex-row gap-3 mb-4">
               <div className="flex-1">
@@ -137,12 +137,12 @@ export default function CreateListForm() {
                   Click the link above to select, or use the copy button →
                 </p>
               </div>
-              
+
               <button
                 onClick={handleCopyLink}
                 className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition ${
-                  copied 
-                    ? 'bg-green-100 text-green-700 border border-green-300' 
+                  copied
+                    ? 'bg-green-100 text-green-700 border border-green-300'
                     : 'bg-gray-800 text-white hover:bg-gray-900'
                 }`}
               >
@@ -192,7 +192,7 @@ export default function CreateListForm() {
     <div className="p-4 max-w-3xl mx-auto">
       <h2 className="text-xl font-semibold mb-4">Create a New List</h2>
 
-      <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2 mb-4">
+      <form onSubmit={handleSearch} className="flex flex-col gap-2 mb-4">
         <input
           type="text"
           placeholder="new list title"
