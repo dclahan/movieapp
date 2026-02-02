@@ -65,8 +65,20 @@ to update db
 - [x] diplay list title in add movie page
 - [x] link back to list page from add movies page
 - [ ] ---
-- [ ] deploy!
+- [x] deploy!
 - [ ] ---
+- [ ] weird bug where there was 4 movies picked! look into - i think it may have been 2 people checking and setting it off at the same time but thats improbable! coulda been something else...
+- [ ] add letterboxd reviews of the moveis to the website - a web crawler seems like it can do this!
+    - [ ] make beautifulsoup python app that crawls `letterboxd.com/${usernm}/film/${ltrbxd.filmTitleSlug}` for all user_names por la lista
+    - [ ] run on cron job like once a day and then every 30 minutes on review days? on like an old laptop I have or something.
+    - [ ] change databases to add letterboxd username (optional) as well as display name in add-movie form.
+    - [ ] need to find the letterboxd film title url slug used for a film when we only have the tmdb data
+    - [ ] click on movie poster and "view on letterboxd" button appears, if movie has been watched then also "view reviews" button appears
+        - [ ] movieclub.com/list/{listId}/film/{filmId} goes to page that shows some movie info and also any members reviews of that movie scraped from letterboxd... hmm
+
+- [ ] make finished list delete/archive (no scraping, no curr movie, hidden from homescreen)
+- [ ] draft up new ERD for movie data, club data, user data, anything else, can make not one big table split up into other tables
+
 - [ ] remove/edit movies
 - [ ] add skeleton components for before page loads ("empty/loading" icons)
 - [ ] safety check for undef behavior in curr section before start/after end
@@ -93,7 +105,7 @@ new functionality
 cosmetic
 - [x] clear "movie added successfully" text on new search or make it a toast (shadcn deprecated toast)
 - [x] after movie chosen along w opacity 50% text overlay with m.currWeek to see when watched
-- [ ] display list title in add movie page
+- [x] display list title in add movie page
 - [ ] make homepage prettier
     - [ ] display curr-movies...?
     - [x] make the list a grid
