@@ -31,7 +31,16 @@ export async function GET(request: Request) {
       .from(movie_tables)
       .where(and(eq(movie_tables.listId, +listId), eq(movie_tables.currentWeek, weekNo)));
 
+    // could do a check to see if legth matches numCurr, if over, remove extras
     if (currentWeekMovies.length) {
+      // possible hotfix for extra movies being present:
+      // const numCurr = (await db.select({ numCurr: movie_tables.numCurr })
+      //   .from(movie_tables)
+      //   .where(eq(movie_tables.listId, +listId))
+      //   .limit(1))[0]?.numCurr ?? 2;
+      // if (currentWeekMovies.length > numCurr) {
+      //   currentWeekMovies.splice(numCurr); // need extra logic bc gotta change db to unwatch extras
+      // }
       return new Response(JSON.stringify(currentWeekMovies), { status: 200 });
     }
   }

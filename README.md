@@ -68,16 +68,20 @@ to update db
 - [x] deploy!
 - [ ] ---
 - [ ] weird bug where there was 4 movies picked! look into - i think it may have been 2 people checking and setting it off at the same time but thats improbable! coulda been something else...
-- [ ] add letterboxd reviews of the moveis to the website - a web crawler seems like it can do this!
-    - [ ] make beautifulsoup python app that crawls `letterboxd.com/${usernm}/film/${ltrbxd.filmTitleSlug}` for all user_names por la lista
+- [ ] Draft up new ERD for movie data, club data, user data, weekly movies, anything else, 
+    - Lets make it not one big table! Split up! Into other tables!
+- [ ] add letterboxd reviews of the movies to the website - a web crawler seems like it can do this!
+    - [ ] make beautifulsoup python app that crawls `letterboxd.com/${usernm}/film/${ltrbxd.filmTitleSlug}` for all letrbxd_user_names en la lista
+        - [ ] `filmTitleSlug` is hard to come by, prob good to have a reference table, maybe just from github or something, of like 5000 movies where cols are `tmdb_id` and `filmTitleSlug`
+            - start with existing movies in list, and build up (maybe dont host with vercel? have somewhere extra... hmmm... )
+        - [ ] but once have `filmTitleSlug`, can use python `requests` to get user reviews is known username
     - [ ] run on cron job like once a day and then every 30 minutes on review days? on like an old laptop I have or something.
     - [ ] change databases to add letterboxd username (optional) as well as display name in add-movie form.
     - [ ] need to find the letterboxd film title url slug used for a film when we only have the tmdb data
     - [ ] click on movie poster and "view on letterboxd" button appears, if movie has been watched then also "view reviews" button appears
         - [ ] movieclub.com/list/{listId}/film/{filmId} goes to page that shows some movie info and also any members reviews of that movie scraped from letterboxd... hmm
 
-- [ ] make finished list delete/archive (no scraping, no curr movie, hidden from homescreen)
-- [ ] draft up new ERD for movie data, club data, user data, anything else, can make not one big table split up into other tables
+- [ ] Make finished list delete/archive (no scraping, no curr movie, hidden from homescreen)
 
 - [ ] remove/edit movies
 - [ ] add skeleton components for before page loads ("empty/loading" icons)
