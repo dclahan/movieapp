@@ -75,13 +75,14 @@ to update db
         - [ ] `filmTitleSlug` is hard to come by, prob good to have a reference table, maybe just from github or something, of like 5000 movies where cols are `tmdb_id` and `filmTitleSlug`
             - start with existing movies in list, and build up (maybe dont host with vercel? have somewhere extra... hmmm... )
         - [ ] but once have `filmTitleSlug`, can use python `requests` to get user reviews is known username
+            - caveat: requests only works for non-paginated reviews (users first review), otherwise gets javascripty
     - [ ] run on cron job like once a day and then every 30 minutes on review days? on like an old laptop I have or something.
     - [ ] change databases to add letterboxd username (optional) as well as display name in add-movie form.
     - [ ] need to find the letterboxd film title url slug used for a film when we only have the tmdb data
     - [ ] click on movie poster and "view on letterboxd" button appears, if movie has been watched then also "view reviews" button appears
         - [ ] movieclub.com/list/{listId}/film/{filmId} goes to page that shows some movie info and also any members reviews of that movie scraped from letterboxd... hmm
 
-- [ ] Make finished list delete/archive (no scraping, no curr movie, hidden from homescreen)
+- [ ] Make finished list delete/archive (no scraping, no curr movie, hidden from homescreen (`/archive` page))
 
 - [ ] remove/edit movies
 - [ ] add skeleton components for before page loads ("empty/loading" icons)
